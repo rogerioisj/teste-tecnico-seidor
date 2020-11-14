@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "rootDir": "src/",
+        "outDir": "dist/src/",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "lib": ["ES5", "ES6"],
+        "allowSyntheticDefaultImports": true,
+        "module": "CommonJS",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "watch": false,
+        "sourceMap": true,
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
