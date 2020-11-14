@@ -21,7 +21,13 @@ export default {
     }
   },
 
-  teste(req: Request, res: Response) {
-    res.json("teste");
+  listAutomoveis(req: Request, res: Response) {
+    try {
+      const collection: Automovel[] = automoveis.listaAutomoveis();
+
+      res.status(200).json(collection);
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
   },
 };

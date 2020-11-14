@@ -5,6 +5,6 @@ const router = Router();
 
 router.post('/carro', AutomovelController.createAutomovel);
 
-router.get('/teste', AutomovelController.teste);
+router.get('/carro', AutomovelController.listAutomoveis);
 
 export default router;
