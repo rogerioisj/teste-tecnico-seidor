@@ -1,0 +1,15 @@
+{
+  "name": "teste-tecnico-seidor",
+  "version": "1.0.0",
+  "description": "Teste técnico para a vaga de backend na Seidor",
+  "main": "app.ts",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rogerio Inacio",
+  "license": "ISC"
+}
