@@ -1,4 +1,4 @@
-import { Automovel } from "./Automovel";
+import { Automovel } from "./Automovel/Automovel";
 import { Motorista } from "./Motorista";
 
 export class UtilizacaoAutomovel{
