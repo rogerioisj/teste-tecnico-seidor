@@ -24,4 +24,6 @@ router.put("/motorista/:id", MotoristaController.updateMotorista);
 
 router.get("/motorista", MotoristaController.listMotorista);
 
+router.get("/motorista/:id", MotoristaController.searchOneMotorista);
+
 export default router;

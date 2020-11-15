@@ -28,12 +28,23 @@ export default {
     }
   },
 
-  listMotorista(req: Request, res: Response){
-      try {
-          const drivers: Motorista[] = motoristas.listaMotoristas();
-          res.status(200).json(drivers);
-      } catch (error) {
-          res.status(500).json(error.message);
-      }
-  }
+  listMotorista(req: Request, res: Response) {
+    try {
+      const drivers: Motorista[] = motoristas.listaMotoristas();
+      res.status(200).json(drivers);
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
+  },
+
+  searchOneMotorista(req: Request, res: Response) {
+    try {
+      const id: number = parseInt(req.params.id);
+
+      let motorista: Motorista = motoristas.recuperaMotorista(id);
+      res.status(200).json(motorista);
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
+  },
 };

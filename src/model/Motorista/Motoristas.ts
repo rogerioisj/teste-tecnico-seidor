@@ -24,4 +24,22 @@ export class Motoristas {
       throw new Error("Motorista não encontrado");
     }
   }
+
+  recuperaMotorista(id: number): Motorista{
+    let encontrou: boolean = false;
+    let motorista: Motorista;
+    
+    this.motoristas.forEach((driver: Motorista) => {
+        if(driver.getId === id){
+            motorista = driver;
+            encontrou = true;
+        }
+    });
+
+    if(!encontrou){
+        throw new Error("Motorista não encontrado");
+    } else {
+        return motorista;
+    }
+  }
 }
