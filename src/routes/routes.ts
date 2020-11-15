@@ -11,4 +11,6 @@ router.put('/carro/:placa', AutomovelController.updateAutomovel);
 
 router.delete('/carro/:placa', AutomovelController.deleteAutomovel);
 
+router.get('/carro/:placa', AutomovelController.searchOneAutomovel);
+
 export default router;

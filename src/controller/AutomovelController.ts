@@ -31,6 +31,16 @@ export default {
     }
   },
 
+  searchOneAutomovel(req: Request, res: Response){
+    try {
+      let automovel = automoveis.recuperaAutomovel(req.params.placa);
+
+      res.status(200).json(automovel);
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
+  },
+
    updateAutomovel(req: Request, res: Response) {
     const automovel = new Automovel(req.params.placa, req.body.cor, req.body.marca);
 

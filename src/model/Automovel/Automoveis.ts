@@ -5,7 +5,7 @@ export class Automoveis {
 
   adicionaAutomovel(automovel: Automovel): void {
 
-    this.automoveis.forEach((veiculo) => {
+    this.automoveis.forEach((veiculo: Automovel) => {
       if(veiculo.getPlaca == automovel.getPlaca){
         throw new Error("Automovel já cadastrado com essa placa");
       }
@@ -18,9 +18,29 @@ export class Automoveis {
     return ([] = this.automoveis);
   }
 
+  recuperaAutomovel(placa: string): Automovel{
+
+    let encontrou: boolean = false;
+    let automovel: Automovel;
+
+    this.automoveis.forEach((veiculo: Automovel) => {
+      
+      if(veiculo.getPlaca == placa) {
+        encontrou = true;
+        automovel = veiculo;
+      }
+    });
+
+    if(!encontrou){
+      throw new Error("Automovel não encontrado");
+    } else{
+      return automovel;
+    }
+  }
+
   atualizaAutomovel(placa: string, automovel: Automovel): void {
     let index: number;
-    this.automoveis.forEach((veiculo) => {
+    this.automoveis.forEach((veiculo: Automovel) => {
       if (veiculo.getPlaca == placa) {
         index = this.automoveis.indexOf(veiculo);
         this.automoveis[index] = automovel;
@@ -34,7 +54,7 @@ export class Automoveis {
 
   removeAutomovel(placa: string): void{
     let removido: boolean = false;
-    this.automoveis.forEach((veiculo) => {
+    this.automoveis.forEach((veiculo: Automovel) => {
       if(veiculo.getPlaca == placa){
         this.automoveis.splice(this.automoveis.indexOf(veiculo), 1);
         removido = true;
