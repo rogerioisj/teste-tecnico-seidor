@@ -5,4 +5,8 @@ export class Automovel {
     private cor: string,
     private marca: string
   ) {}
+
+  get getPlaca() {
+    return this.placa;
+  }
 }

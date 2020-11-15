@@ -15,7 +15,7 @@ export default {
     try {
       automoveis.adicionaAutomovel(automovel);
 
-      res.status(200).json("Carro adionado com sucesso");
+      res.status(200).json("Automovel adicionado com sucesso");
     } catch (error) {
       res.status(500).json(error.message);
     }
@@ -30,4 +30,20 @@ export default {
       res.status(500).json(error.message);
     }
   },
+
+   updateAutomovel(req: Request, res: Response) {
+    const automovel = new Automovel(req.params.placa, req.body.cor, req.body.marca);
+
+    const placa: string =  req.params.placa;
+
+    try {
+      automoveis.atualizaAutomovel(placa, automovel);
+
+      res.status(200).json("Automovel atualizado com sucesso");
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
+    
+  }
+
 };
