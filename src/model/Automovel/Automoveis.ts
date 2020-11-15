@@ -17,6 +17,49 @@ export class Automoveis {
     return ([] = this.automoveis);
   }
 
+  filtraAutomoveis(cor: string, marca: string): Automovel[] {
+    let encontrou: boolean = false;
+    let cars: Automovel[] = [];
+
+    if (cor === undefined) {
+      this.automoveis.forEach((car: Automovel) => {
+        if (car.getMarca === marca) {
+          cars.push(car);
+          encontrou = true;
+        }
+      });
+    } else if (marca === undefined) {
+      this.automoveis.forEach((car: Automovel) => {
+        if (car.getCor === cor) {
+          cars.push(car);
+          encontrou = true;
+        }
+      });
+    } else {
+      let carsCollection: Automovel[] = [];
+
+      this.automoveis.forEach((car: Automovel) => {
+        if (car.getCor === cor) {
+          carsCollection.push(car);
+          encontrou = true;
+        }
+      });
+
+      carsCollection.forEach((car: Automovel) => {
+        if (car.getMarca === marca) {
+          cars.push(car);
+          encontrou = true;
+        }
+      });
+    }
+
+    if (!encontrou) {
+      throw new Error("Automovel não encontrado");
+    } else {
+      return cars;
+    }
+  }
+
   recuperaAutomovel(placa: string): Automovel {
     let encontrou: boolean = false;
     let automovel: Automovel;

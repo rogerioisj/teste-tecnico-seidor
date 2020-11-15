@@ -6,7 +6,15 @@ export class Automovel {
     private marca: string
   ) {}
 
-  get getPlaca() {
+  get getPlaca(): string {
     return this.placa;
+  }
+
+  get getCor(): string {
+    return this.cor;
+  }
+
+  get getMarca(): string {
+    return this.marca;
   }
 }

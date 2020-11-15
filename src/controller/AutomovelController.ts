@@ -22,12 +22,22 @@ export default {
   },
 
   listAutomoveis(req: Request, res: Response) {
-    try {
-      const collection: Automovel[] = automoveis.listaAutomoveis();
-
-      res.status(200).json(collection);
-    } catch (error) {
-      res.status(500).json(error.message);
+    if(req.body.cor === undefined && req.body.marca === undefined) {
+      try {
+        const collection: Automovel[] = automoveis.listaAutomoveis();
+  
+        res.status(200).json(collection);
+      } catch (error) {
+        res.status(500).json(error.message);
+      }
+    } else{
+      try {
+        const anotherCollection: Automovel[] = automoveis.filtraAutomoveis(req.body.cor, req.body.marca);
+  
+        res.status(200).json(anotherCollection);
+      } catch (error) {
+        res.status(500).json(error.message);
+      }
     }
   },
 
