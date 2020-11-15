@@ -12,6 +12,10 @@ export class Motorista {
       return this.id;
   }
 
+  get getNome(): string {
+    return this.nome;
+  }
+
   setNome(nome: string): void {
       this.nome = nome;
   }

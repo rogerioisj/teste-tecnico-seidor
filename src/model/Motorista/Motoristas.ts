@@ -43,6 +43,24 @@ export class Motoristas {
     }
   }
 
+  filtraMotorista(nome: string): Motorista[] {
+    let encontrou: boolean = false;
+    let drivers: Motorista[] = [];
+
+    this.motoristas.forEach((driver: Motorista) =>{
+        if(driver.getNome === nome){
+            drivers.push(driver);
+            encontrou = true;
+        }
+    });
+
+    if(!encontrou){
+        throw new Error("Motorista não encontrado");
+    } else{
+        return drivers;
+    }
+  }
+
   excluiMotorista(id: number): void {
       let removido: boolean = false;
 

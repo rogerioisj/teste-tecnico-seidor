@@ -29,11 +29,21 @@ export default {
   },
 
   listMotorista(req: Request, res: Response) {
-    try {
-      const drivers: Motorista[] = motoristas.listaMotoristas();
-      res.status(200).json(drivers);
-    } catch (error) {
-      res.status(500).json(error.message);
+    if (req.body.nome === undefined) {
+      try {
+        const drivers: Motorista[] = motoristas.listaMotoristas();
+        res.status(200).json(drivers);
+      } catch (error) {
+        res.status(500).json(error.message);
+      }
+    } else {
+      try {
+        const drivers = motoristas.filtraMotorista(req.body.nome);
+
+        res.status(200).json(drivers);
+      } catch (error) {
+        res.status(500).json(error.message);
+      }
     }
   },
 
@@ -48,15 +58,14 @@ export default {
     }
   },
 
-  deleteMotorista(req: Request, res: Response){
-
+  deleteMotorista(req: Request, res: Response) {
     const id: number = parseInt(req.params.id);
 
-      try {
-          motoristas.excluiMotorista(id);
-          res.status(200).json("Motorista excluido com sucesso");
-      } catch (error) {
-          res.status(500).json(error.message);
-      }
-  }
+    try {
+      motoristas.excluiMotorista(id);
+      res.status(200).json("Motorista excluido com sucesso");
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
+  },
 };
