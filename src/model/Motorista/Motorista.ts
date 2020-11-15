@@ -8,6 +8,14 @@ export class Motorista {
     Motorista.contId++;
   }
 
+  get getId(): number {
+      return this.id;
+  }
+
+  setNome(nome: string): void {
+      this.nome = nome;
+  }
+
   constructor(private nome: string) {
     this.generateId();
   }
