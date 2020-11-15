@@ -6,11 +6,11 @@ const automoveis = new Automoveis();
 
 export default {
   async createAutomovel(req: Request, res: Response) {
-    const placa: string = await req.body.placa;
-    const cor: string = await req.body.cor;
-    const marca: string = await req.body.marca;
-
-    const automovel = new Automovel(placa, cor, marca);
+    const automovel = new Automovel(
+      req.body.placa,
+      req.body.cor,
+      req.body.marca
+    );
 
     try {
       automoveis.adicionaAutomovel(automovel);
@@ -31,7 +31,7 @@ export default {
     }
   },
 
-  searchOneAutomovel(req: Request, res: Response){
+  searchOneAutomovel(req: Request, res: Response) {
     try {
       let automovel = automoveis.recuperaAutomovel(req.params.placa);
 
@@ -41,10 +41,14 @@ export default {
     }
   },
 
-   updateAutomovel(req: Request, res: Response) {
-    const automovel = new Automovel(req.params.placa, req.body.cor, req.body.marca);
+  updateAutomovel(req: Request, res: Response) {
+    const automovel = new Automovel(
+      req.body.placa,
+      req.body.cor,
+      req.body.marca
+    );
 
-    const placa: string =  req.params.placa;
+    const placa: string = req.params.placa;
 
     try {
       automoveis.atualizaAutomovel(placa, automovel);
@@ -53,18 +57,16 @@ export default {
     } catch (error) {
       res.status(500).json(error.message);
     }
-    
   },
 
-  deleteAutomovel(req: Request, res: Response){
+  deleteAutomovel(req: Request, res: Response) {
     const placa: string = req.params.placa;
     try {
       automoveis.removeAutomovel(placa);
 
-      res.status(200).json("Automovel removido com sucesso")
+      res.status(200).json("Automovel removido com sucesso");
     } catch (error) {
       res.status(500).json(error.message);
     }
-  }
-
+  },
 };

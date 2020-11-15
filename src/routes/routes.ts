@@ -1,16 +1,16 @@
-import { Router } from 'express';
-import AutomovelController from '../controller/AutomovelController';
+import { Router } from "express";
+import AutomovelController from "../controller/AutomovelController";
 
 const router = Router();
 
-router.post('/carro', AutomovelController.createAutomovel);
+router.post("/carro", AutomovelController.createAutomovel);
 
-router.get('/carro', AutomovelController.listAutomoveis);
+router.get("/carro", AutomovelController.listAutomoveis);
 
-router.put('/carro/:placa', AutomovelController.updateAutomovel);
+router.put("/carro/:placa", AutomovelController.updateAutomovel);
 
-router.delete('/carro/:placa', AutomovelController.deleteAutomovel);
+router.delete("/carro/:placa", AutomovelController.deleteAutomovel);
 
-router.get('/carro/:placa', AutomovelController.searchOneAutomovel);
+router.get("/carro/:placa", AutomovelController.searchOneAutomovel);
 
 export default router;

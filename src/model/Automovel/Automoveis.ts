@@ -4,9 +4,8 @@ export class Automoveis {
   private automoveis: Automovel[] = [];
 
   adicionaAutomovel(automovel: Automovel): void {
-
     this.automoveis.forEach((veiculo: Automovel) => {
-      if(veiculo.getPlaca == automovel.getPlaca){
+      if (veiculo.getPlaca == automovel.getPlaca) {
         throw new Error("Automovel já cadastrado com essa placa");
       }
     });
@@ -18,22 +17,20 @@ export class Automoveis {
     return ([] = this.automoveis);
   }
 
-  recuperaAutomovel(placa: string): Automovel{
-
+  recuperaAutomovel(placa: string): Automovel {
     let encontrou: boolean = false;
     let automovel: Automovel;
 
     this.automoveis.forEach((veiculo: Automovel) => {
-      
-      if(veiculo.getPlaca == placa) {
+      if (veiculo.getPlaca == placa) {
         encontrou = true;
         automovel = veiculo;
       }
     });
 
-    if(!encontrou){
+    if (!encontrou) {
       throw new Error("Automovel não encontrado");
-    } else{
+    } else {
       return automovel;
     }
   }
@@ -52,17 +49,17 @@ export class Automoveis {
     }
   }
 
-  removeAutomovel(placa: string): void{
+  removeAutomovel(placa: string): void {
     let removido: boolean = false;
     this.automoveis.forEach((veiculo: Automovel) => {
-      if(veiculo.getPlaca == placa){
+      if (veiculo.getPlaca == placa) {
         this.automoveis.splice(this.automoveis.indexOf(veiculo), 1);
         removido = true;
       }
     });
 
-    if(!removido){
-      throw new Error("Automovel não encontrado")
+    if (!removido) {
+      throw new Error("Automovel não encontrado");
     }
   }
 }
