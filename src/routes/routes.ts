@@ -26,4 +26,6 @@ router.get("/motorista", MotoristaController.listMotorista);
 
 router.get("/motorista/:id", MotoristaController.searchOneMotorista);
 
+router.delete("/motorista/:id", MotoristaController.deleteMotorista);
+
 export default router;

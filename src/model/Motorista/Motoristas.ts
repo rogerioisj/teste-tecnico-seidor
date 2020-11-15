@@ -25,21 +25,36 @@ export class Motoristas {
     }
   }
 
-  recuperaMotorista(id: number): Motorista{
+  recuperaMotorista(id: number): Motorista {
     let encontrou: boolean = false;
     let motorista: Motorista;
-    
+
     this.motoristas.forEach((driver: Motorista) => {
-        if(driver.getId === id){
-            motorista = driver;
-            encontrou = true;
-        }
+      if (driver.getId === id) {
+        motorista = driver;
+        encontrou = true;
+      }
     });
 
-    if(!encontrou){
-        throw new Error("Motorista não encontrado");
+    if (!encontrou) {
+      throw new Error("Motorista não encontrado");
     } else {
-        return motorista;
+      return motorista;
     }
+  }
+
+  excluiMotorista(id: number): void {
+      let removido: boolean = false;
+
+      this.motoristas.forEach((motorista: Motorista) =>{
+          if(motorista.getId === id){
+              this.motoristas.splice(this.motoristas.indexOf(motorista), 1);
+              removido = true;
+          }
+      });
+
+      if(!removido){
+          throw new Error("Motorista não encontrado");
+      }
   }
 }

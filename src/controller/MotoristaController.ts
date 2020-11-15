@@ -47,4 +47,16 @@ export default {
       res.status(500).json(error.message);
     }
   },
+
+  deleteMotorista(req: Request, res: Response){
+
+    const id: number = parseInt(req.params.id);
+
+      try {
+          motoristas.excluiMotorista(id);
+          res.status(200).json("Motorista excluido com sucesso");
+      } catch (error) {
+          res.status(500).json(error.message);
+      }
+  }
 };
