@@ -7,6 +7,8 @@ router.post('/carro', AutomovelController.createAutomovel);
 
 router.get('/carro', AutomovelController.listAutomoveis);
 
-router.put('/carro/:placa', AutomovelController.updateAutomovel)
+router.put('/carro/:placa', AutomovelController.updateAutomovel);
+
+router.delete('/carro/:placa', AutomovelController.deleteAutomovel);
 
 export default router;

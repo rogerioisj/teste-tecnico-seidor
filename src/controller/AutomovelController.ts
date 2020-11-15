@@ -44,6 +44,17 @@ export default {
       res.status(500).json(error.message);
     }
     
+  },
+
+  deleteAutomovel(req: Request, res: Response){
+    const placa: string = req.params.placa;
+    try {
+      automoveis.removeAutomovel(placa);
+
+      res.status(200).json("Automovel removido com sucesso")
+    } catch (error) {
+      res.status(500).json(error.message);
+    }
   }
 
 };
