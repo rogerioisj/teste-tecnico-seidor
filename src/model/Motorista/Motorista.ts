@@ -4,11 +4,11 @@ export class Motorista {
   public static contId: number = 1;
 
   generateId(): void {
-      this.id = Motorista.contId;
-      Motorista.contId++;
+    this.id = Motorista.contId;
+    Motorista.contId++;
   }
 
   constructor(private nome: string) {
-      this.generateId();
+    this.generateId();
   }
 }
